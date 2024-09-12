@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+# created by:
+# Sebastian Fornfischer
+# sebastian.fornfischer@prosiebensat1.com
+
+# date:  2018/09/12
+
+# file location:
+# share/check_mk/checks/
+
+
+def inventory_slfr_cluster_sessions(info):
+    yield 'numSessions', None
+
+
+def check_slfr_cluster_sessions(item, params, info):
+
+    if 0 == len(info):
+     return 3, 'info is zero length'
+    else:
+     return 0, 'Sessions: ' + str(info[0][1])
+
+check_info['slfr_cluster_sessions'] = {
+  'check_function':            check_slfr_cluster_sessions,
+  'inventory_function':        inventory_slfr_cluster_sessions,
+  'service_description':       'SLFR-CLUSTER-SESSIONS-%s',
+}

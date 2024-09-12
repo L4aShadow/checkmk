@@ -1,0 +1,11 @@
+title: NetApp Solidfire: Uptime
+agents: solidfire
+catalog: hw/storage/solidfire
+license: GPLv2
+distribution: check_mk
+description:
+ This check monitors the uptime of the NetApp Solidfire.
+
+discovery:
+ One service is created for each system if the agent has a section {<<<solidfire>>>}
+ and the key {NewUptime} is available.
